@@ -1,7 +1,7 @@
 # 📚 Grade 8 Mathematics: A Hidden School-Wide Problem
 
 ## 📌 Project Overview
-
+This project was developed as a **portfolio project** to demonstrate an end-to-end data analytics workflow while simulating a real-world business scenario.
 Most data analysis stops at "what happened." This project follows the modern data analytics workflow through to **data storytelling** — not just finding a problem, but tracing its exact cause through a rigorous, evidence-based elimination process, and translating it into a specific answer for each stakeholder who needs one.
 
 Built entirely in **SQL (PostgreSQL)** — every claim in this README is backed by an actual query result, not assumption.
@@ -15,7 +15,7 @@ Built entirely in **SQL (PostgreSQL)** — every claim in this README is backed 
 ---
 
 ## 🗂️ Dataset
-
+This project uses a **synthetic students performance dataset** generated with the assistance of the **DeepSeek AI platform** for portfolio and learning purposes.
 200 exam records across 3 grades (7, 8, 9), 4 sections (A–D), 4 subjects (Mathematics, Science, English, History), 10 teachers, spanning January–December 2025.
 
 Columns: `StudentID`, `Grade`, `Section`, `Subject`, `ExamDate`, `Score`, `PassFlag`, `TeacherID`
