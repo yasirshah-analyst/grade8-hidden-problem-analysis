@@ -221,4 +221,8 @@ grade8-hidden-problem-analysis/
 ```
 
 ## 👤 Author
-Yasir Shah — [@yasirshah-analyst](https://github.com/yasirshah-analyst)
+Yasir Shah | Primary School Teacher | Data Analyst
+
+- [@yasirshah-analyst](https://github.com/yasirshah-analyst)
+- www.linkedin.com/in/yasir-shah-2364183b3
+- shahyasir443@gmail.com
