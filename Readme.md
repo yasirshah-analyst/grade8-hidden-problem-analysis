@@ -202,22 +202,23 @@ With zero month-to-month variation, Grade 8 Mathematics is not going to self-cor
 ```
 grade8-hidden-problem-analysis/
 │
-├── sql/
-│   └── analysis_queries.sql
-│   └── screenshot/
-│       ├── query1_overall_health.png
-│       ├── query2_grade.png
-│       ├── query3_subject.png
-│       ├── query4_grade_subject.png
-│       ├── query5_grade_section.png
-│       ├── query6_teacher.png
-│       ├── query7_monthly_trend.png
-│       └── query8_english_month_section.png
+├── Data/
+│   └── students.csv
 │
-├── data/
-│   └── students_performance.csv
+├── Outputs/
+│   ├── Q0.csv
+│   ├── Q1.csv
+│   ├── Q2.csv
+│   ├── Q3.csv
+│   ├── Q4.csv
+│   ├── Q5.csv
+│   ├── Q6.csv
+│   ├── Q7.csv
+│   └── Q8.csv
 │
-└── README.md
+├── students_performance.sql
+│
+└── Readme.md
 ```
 
 ## 👤 Author
