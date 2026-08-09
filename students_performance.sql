@@ -71,6 +71,7 @@ WHERE grade = 8 AND subject in ('Mathematics','English')
 group by teacherid
 order by avg_score desc;
 
+-- Has this always been broken, or did it start recently?
 SELECT DATE_TRUNC('month', examdate) AS month,
 	   subject,
        COUNT(*) AS students,
@@ -78,4 +79,15 @@ SELECT DATE_TRUNC('month', examdate) AS month,
 FROM students_performance
 WHERE grade = 8 AND subject in ('Mathematics','English')
 GROUP BY DATE_TRUNC('month', examdate),subject
+ORDER BY month;
+
+-- Why does English's pass rate appear to swing by month?
+SELECT 
+    DATE_TRUNC('month', examdate) AS month,
+    section,
+    COUNT(*) AS total_records,
+    ROUND(100.0 * SUM(CASE WHEN passflag = 'Yes' THEN 1 ELSE 0 END) / COUNT(*), 1) AS pass_rate_pct
+FROM students_performance
+WHERE grade = 8 AND subject = 'English'
+GROUP BY DATE_TRUNC('month', examdate), section
 ORDER BY month;
