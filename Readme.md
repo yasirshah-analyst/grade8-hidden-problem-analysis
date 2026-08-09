@@ -24,7 +24,7 @@ Columns: `StudentID`, `Grade`, `Section`, `Subject`, `ExamDate`, `Score`, `PassF
 
 ## 🔎 The Investigation — 8 SQL Queries
 
-Each query either confirms or rules out a possible explanation, narrowing the search step by step. All percentage calculations use `100.0 *` (not `100 *`) to avoid PostgreSQL's integer-division truncation bug.
+Each query either confirms or rules out a possible explanation, narrowing the search step by step. 
 
 ### Query 1 — How healthy is overall school performance?
 ```sql
