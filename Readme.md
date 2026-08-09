@@ -26,7 +26,7 @@ Columns: `StudentID`, `Grade`, `Section`, `Subject`, `ExamDate`, `Score`, `PassF
 
 Each query either confirms or rules out a possible explanation, narrowing the search step by step. 
 
-### Query 1 — How healthy is overall school performance?
+### Query 0 — How healthy is overall school performance?
 ```sql
 SELECT 
     COUNT(*) AS total_records,
@@ -38,7 +38,7 @@ FROM students_performance;
 
 ---
 
-### Query 2 — Which grade is struggling most?
+### Query 1 — Which grade is struggling most?
 ```sql
 SELECT 
     grade,
@@ -53,7 +53,7 @@ ORDER BY grade;
 
 ---
 
-### Query 3 — Which subjects are driving poor results?
+### Query 2 — Which subjects are driving poor results?
 ```sql
 SELECT 
     subject,
@@ -68,7 +68,7 @@ ORDER BY avg_score;
 
 ---
 
-### Query 4 — Is the problem concentrated in specific subjects within Grade 8?
+### Query 3 — Is the problem concentrated in specific subjects within Grade 8?
 ```sql
 SELECT 
     grade,
@@ -89,7 +89,7 @@ Only two of Grade 8's four subjects are affected — Science and History are com
 
 ---
 
-### Query 5 — Are certain sections underperforming?
+### Query 4 — Are certain sections underperforming?
 ```sql
 SELECT 
     grade,
@@ -108,7 +108,7 @@ This is the key divergence: **Mathematics fails universally across all sections.
 
 ---
 
-### Query 6 — Are certain teachers consistently associated with better or worse outcomes?
+### Query 5 — Are certain teachers consistently associated with better or worse outcomes?
 ```sql
 SELECT 
     teacherid,
@@ -129,7 +129,7 @@ ORDER BY subject, pass_rate DESC;
 
 ---
 
-### Query 7 — Has this always been broken, or did it start recently?
+### Query 6 — Has this always been broken, or did it start recently?
 ```sql
 SELECT 
     DATE_TRUNC('month', examdate) AS month,
@@ -144,7 +144,7 @@ ORDER BY month;
 
 ---
 
-### Query 8 — Why does English's pass rate appear to swing by month?
+### Query 7 — Why does English's pass rate appear to swing by month?
 ```sql
 SELECT 
     DATE_TRUNC('month', examdate) AS month,
