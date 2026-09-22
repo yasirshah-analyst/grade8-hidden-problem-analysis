@@ -1,25 +1,52 @@
-# 📚 Grade 8 Mathematics: A Hidden School-Wide Problem
+# 📚 Diagnosing a Hidden Academic Failure Before It Spreads
 
-## 📌 Project Overview
-This project was developed as a **portfolio project** to demonstrate an end-to-end data analytics workflow while simulating a real-world business scenario.
-Most data analysis stops at "what happened." This project follows the modern data analytics workflow through to **data storytelling** — not just finding a problem, but tracing its exact cause through a rigorous, evidence-based elimination process, and translating it into a specific answer for each stakeholder who needs one.
-
-Built entirely in **SQL (PostgreSQL)** — every claim in this README is backed by an actual query result, not assumption.
-
+## Executive Summary
+ 
+A school's overall exam results looked healthy, but the blended pass rate was hiding a serious problem concentrated in one grade.
+ 
+The goal of this project was to find out where the problem was, whether it was caused by a teacher, section, subject, or time period, and what the school should do about it.
+ 
+The analysis found two different problems hiding inside one number:
+ 
+- **Grade 8 Mathematics**: 0% pass rate across every teacher, section, and month — ruling out a single teacher or section as the cause and pointing toward a broader curriculum or assessment issue.
+- **Grade 8 English**: poor results concentrated in specific sections. The results appeared to show a monthly pattern at first, but each month's exam actually represented a different section — the apparent time trend was a section effect in disguise.
+Treating both problems as having the same cause would have led to the wrong fix for at least one of them.
+ 
+**Key Recommendations**
+ 
+1. Audit Grade 8 Mathematics' curriculum and assessment design — the 0% pass rate was consistent across every teacher and section.
+2. Investigate what differs about Sections A and C in English, compared to Section B, which passed at 100%.
+3. Address the Grade 8 Math issue immediately rather than waiting for future exams — the problem was consistent all year, with no sign of self-correcting.
+---
+ 
+## Business Problem
+ 
+> Can a school's overall exam results hide a serious problem in one grade, subject, or section?
+ 
+This project investigates the school's exam results to identify whether a localized academic problem exists — and if so, exactly where it occurs and what evidence should guide the response.
+ 
+**Business Problem → Questions → Data → Analysis → Evidence → Recommendation**
+ 
 ---
 
-## 🎯 Business Problem
-
-> Overall school performance data can look healthy while hiding a real, localized problem inside it. This project investigates whether such a hidden issue exists in this school's exam results — and if so, exactly where it lives, why it's happening, and what different stakeholders should do about it.
-
----
-
-## 🗂️ Dataset
-This project uses a **synthetic students performance dataset** generated with the assistance of the **DeepSeek AI platform** for portfolio and learning purposes.
-200 exam records across 3 grades (7, 8, 9), 4 sections (A–D), 4 subjects (Mathematics, Science, English, History), 10 teachers, spanning January–December 2025.
-
+## Dataset
+ 
+200 synthetic exam records: Grades 7–9, Sections A–D, 4 subjects, 10 teachers, January–December 2025. Generated with DeepSeek for portfolio purposes — the data is synthetic, but the analysis was designed to simulate a realistic school performance investigation.
+ 
 Columns: `StudentID`, `Grade`, `Section`, `Subject`, `ExamDate`, `Score`, `PassFlag`, `TeacherID`
-
+ 
+---
+ 
+## Key Findings
+ 
+**1. The overall result hid a Grade 8 problem.** School-level results looked healthy, but breaking down by grade showed the problem concentrated entirely in Grade 8 — Grades 7 and 9 showed no such pattern. A clear example of why a single blended KPI can hide a real localized problem.
+ 
+**2. Grade 8 Mathematics: 0% pass rate, no exceptions.** Failed across all teachers, all sections, all months — ruling out a single-teacher or single-section explanation and pointing to a curriculum or assessment-level issue.
+ 
+**3. Grade 8 English: a section-specific problem, not a subject-wide one.** Section B passed at 100%; Sections A and C performed far worse — suggesting something specific to those sections, not English instruction generally.
+ 
+**4. The apparent English "monthly trend" was a confound.** Month and Section were entangled in the exam schedule — each month's exam represented only one section — so a simple month-over-month comparison would have produced a misleading conclusion. After separating the two variables, Section was the real driver, not Month.
+ 
 ---
 
 ## 🔎 The Investigation — 8 SQL Queries
@@ -171,32 +198,39 @@ ORDER BY month;
 
 ---
 
-## 📖 The Data Story
-
-### 📌 What happened?
-Grade 8's overall pass rate is 58.2%, while Grade 7 and Grade 9 both achieve a perfect 100%.
-
-### 📌 Why did it happen?
-Entirely isolated to two subjects: **Mathematics (0% pass rate, every section, every teacher, every month)** and **English (33.3%, driven specifically by Sections A and C, while Section B passes fully)**. Science and History in Grade 8 are perfectly healthy. A rigorous elimination process ruled out section-specific and teacher-specific causes for Mathematics, and ruled out a "declining trend" explanation for English's apparent time pattern — it's actually a section effect in disguise.
-
-### 📌 Why does it matter?
-With zero month-to-month variation, Grade 8 Mathematics is not going to self-correct — every cohort passing through this grade will keep failing under the current structure until something changes.
-
-### 📌 What should we do next?
-
-🎯 **School Director** — *"Is this affecting our overall school results?"*
-→ Not school-wide. Grades 7 and 9 are fully unaffected — this is isolated entirely to Grade 8.
-
-🎯 **Principal** — *"What's causing it?"*
-→ Not a Grade 8-wide issue either. Science and History in Grade 8 are perfect. It's specifically Mathematics (every section, every teacher — a structural/curriculum issue) and English (only 2 of 3 sections — worth investigating what's different about those specific sections' instruction or student composition).
-
-🎯 **Mathematics Section Head** — *"What should we do about it?"*
-→ Since all 10 teachers and all 3 sections show an identical 0% result, this is not a case for teacher retraining or section reassignment — it points to the curriculum, exam difficulty, or pacing for Grade 8 Mathematics specifically. Recommend an audit of the course material and assessment design, not personnel.
-
+## Stakeholder-Specific Answers
+ 
+🎯 **School Director** — *"Is this affecting the whole school?"*
+No. The problem is localized to Grade 8, not a school-wide performance issue.
+ 
+🎯 **Principal** — *"Where should we focus the investigation?"*
+Grade 8 Mathematics needs a curriculum/assessment review; Grade 8 English needs a section-level investigation — they are not the same problem.
+ 
+🎯 **Mathematics Section Head** — *"Should we focus on one teacher?"*
+No — the data doesn't support that. 0% occurred across every teacher and section, so the investigation should move toward curriculum and assessment factors, not personnel.
+ 
 ---
-
-## 🛠️ Tools Used
-- PostgreSQL (all analysis, no other tools)
+## Recommendations
+ 
+**1. Review Grade 8 Mathematics.** Audit the curriculum, learning material, and assessment design — the consistent 0% across teachers and sections makes a single-teacher fix unlikely to address the underlying issue.
+ 
+**2. Investigate English Sections A and C.** Compare against Section B on teaching approach, learning conditions, student composition, attendance, instructional support, and assessment conditions. The current dataset can't establish which factor is responsible — that requires further investigation.
+ 
+**3. Monitor Grade 8 Mathematics going forward.** The problem stayed consistent all year with no self-correction — a follow-up assessment after any intervention would confirm whether performance actually improves.
+ 
+---
+ 
+## Limitations
+ 
+This analysis identifies patterns and likely areas for investigation — it does not prove the underlying causal mechanism. The Grade 8 Mathematics findings support investigating curriculum and assessment design, but confirming either as the root cause would need additional information. Similarly, the English findings would need student-level and classroom data to confirm a specific cause.
+ 
+> The data tells us where to investigate. It does not automatically tell us why the problem exists.
+ 
+---
+ 
+## Tools Used
+ 
+PostgreSQL — all analysis performed in SQL.
 
 ## 📁 Project Structure
 ```
